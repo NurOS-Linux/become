@@ -1,46 +1,59 @@
 # Become - Redirect Page
 
-Это React приложение для перенаправления пользователей на форму.
+> **Language / Язык / Тіл:** [English](README.md) | [Русский](README_ru.md) | [Қазақша](README_kk.md)
 
-## Установка
+A React application for redirecting users to a form.
+
+## Installation
 
 ```bash
 npm install
 ```
 
-## Запуск в режиме разработки
+## Development
 
 ```bash
 npm run dev
 ```
 
-## Сборка для продакшена
+## Production Build
 
 ```bash
 npm run build
 ```
 
-Собранные файлы будут в папке `dist/`.
+Built files will be in the `dist/` folder.
 
-## Деплой
+## Type Checking
 
-После сборки скопируйте содержимое папки `dist/` на ваш веб-сервер или используйте GitHub Pages для деплоя.
+```bash
+npm run typecheck
+```
 
-### Для GitHub Pages
+## Deployment
 
-1. Соберите проект: `npm run build`
-2. Скопируйте содержимое `dist/` в корень репозитория или настройте GitHub Actions для автоматического деплоя
+After building, copy the contents of `dist/` to your web server or use GitHub Pages.
 
-## Технологии
+### GitHub Pages
+
+1. Build the project: `npm run build`
+2. Copy `dist/` contents to the repository root or set up GitHub Actions for automatic deployment
+
+## Tech Stack
 
 - React 18
+- TypeScript
 - Vite
 - CSS3
 
-## Особенности
+## Features
 
-- Автоматический редирект через 3 секунды
-- Визуальный таймер обратного отсчета
-- Резервная кнопка для ручного перехода
-- Адаптивный дизайн
-- Отсутствие циклических редиректов
+- Automatic redirect after 3 seconds
+- Visual countdown timer
+- Fallback button for manual redirect
+- Responsive design
+- No redirect loops
+
+## License
+
+This project is licensed under [AGPL-3.0](LICENSE).
