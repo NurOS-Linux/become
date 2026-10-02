@@ -1,59 +1,57 @@
-# Become - Redirect Page
+# Become
 
-> **Language / Язык / Тіл:** [English](README.md) | [Русский](README_ru.md) | [Қазақша](README_kk.md)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENSE)
+[![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-ff5d01.svg)](https://astro.build)
 
-A React application for redirecting users to a form.
+## About
 
-## Installation
+Source code of [become.nuros.org](https://become.nuros.org), the recruitment page of the NurOS project. It lists open positions in the team and contains the application form.
+
+## Dependencies
+
+- Node.js 22.12 or newer
+- npm
+
+## Build
 
 ```bash
 npm install
-```
-
-## Development
-
-```bash
-npm run dev
-```
-
-## Production Build
-
-```bash
 npm run build
 ```
 
-Built files will be in the `dist/` folder.
+The static site is written to `dist/`.
 
-## Type Checking
+Other commands:
 
-```bash
-npm run typecheck
-```
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the development server |
+| `npm run preview` | Serve the contents of `dist/` |
+| `npm run check` | Run type checking |
+
+## Vacancies
+
+The list of positions is stored in `src/data/vacancies.ts`. Positions are grouped by category. Numbering and counters on the page are calculated from this file.
+
+## Application form
+
+The form is hosted on [Tally](https://tally.so) and embedded on the `/apply` page. The form ID is set in `src/pages/apply.astro`.
 
 ## Deployment
 
-After building, copy the contents of `dist/` to your web server or use GitHub Pages.
+The site is deployed to GitHub Pages. The files `CNAME` and `.nojekyll` are located in `public/` and are copied to `dist/` during the build.
 
-### GitHub Pages
+## Acknowledgments
 
-1. Build the project: `npm run build`
-2. Copy `dist/` contents to the repository root or set up GitHub Actions for automatic deployment
+- [Astro](https://astro.build)
+- [Material Design 3](https://m3.material.io)
+- [Tally](https://tally.so)
 
-## Tech Stack
+## Links
 
-- React 18
-- TypeScript
-- Vite
-- CSS3
-
-## Features
-
-- Automatic redirect after 3 seconds
-- Visual countdown timer
-- Fallback button for manual redirect
-- Responsive design
-- No redirect loops
+- [NurOS website](https://nuros.org)
+- [Astro documentation](https://docs.astro.build)
 
 ## License
 
-This project is licensed under [AGPL-3.0](LICENSE).
+[AGPL-3.0](LICENSE)
