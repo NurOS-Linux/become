@@ -1,0 +1,69 @@
+---
+import VacancyCard from './VacancyCard.astro';
+import { categories } from '../data/vacancies';
+
+const offsets = categories.map((_, index) =>
+  categories.slice(0, index).reduce((sum, category) => sum + category.vacancies.length, 0),
+);
+---
+
+<section id="vacancies" class="vacancies">
+  <div class="container">
+    <h2 class="display-small emphasized">Открытые позиции</h2>
+    {categories.map((category, categoryIndex) => (
+      <div class="category">
+        <div class="category-header">
+          <h3 class="headline-small">{category.title}</h3>
+          <span class="count label-large">{category.vacancies.length}</span>
+        </div>
+        <div class="grid">
+          {category.vacancies.map((vacancy, index) => (
+            <VacancyCard vacancy={vacancy} number={offsets[categoryIndex] + index + 1} tone={category.tone} />
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .vacancies {
+    padding: var(--spacing-xl) 0;
+    border-radius: var(--shape-xxl) var(--shape-xxl) 0 0;
+    background-color: var(--md-surface-container-low);
+  }
+
+  h2 {
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.02em;
+  }
+
+  .category + .category {
+    margin-top: var(--spacing-lg);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0 0.5rem;
+    border-radius: var(--shape-full);
+    background: var(--md-surface-container-highest);
+    color: var(--md-on-surface-variant);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1rem;
+  }
+</style>

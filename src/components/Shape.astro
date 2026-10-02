@@ -1,0 +1,21 @@
+---
+interface Props {
+  lobes: number;
+  depth: number;
+  class?: string;
+}
+
+const { lobes, depth, class: className } = Astro.props;
+
+const steps = 360;
+const radius = 50 / (1 + depth);
+const points: string[] = [];
+for (let i = 0; i < steps; i++) {
+  const angle = (i / steps) * Math.PI * 2;
+  const r = radius * (1 + depth * Math.cos(lobes * angle));
+  points.push(`${(50 + r * Math.cos(angle)).toFixed(2)},${(50 + r * Math.sin(angle)).toFixed(2)}`);
+}
+const d = `M${points.join('L')}Z`;
+---
+
+<svg class={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true"><path d={d} /></svg>

@@ -1,0 +1,156 @@
+---
+import Icon from './Icon.astro';
+import Shape from './Shape.astro';
+import { vacancyCount } from '../data/vacancies';
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow label-large">NurOS Become</p>
+      <h1 class="display-large emphasized">Команда NurOS ищет участников</h1>
+      <p class="hero-subtitle body-large">
+        NurOS это независимый дистрибутив Linux с открытым исходным кодом. На этой странице перечислены открытые роли и требования к ним.
+      </p>
+      <div class="hero-actions">
+        <a href="/apply" class="btn btn-lg">
+          Подать заявку
+          <Icon name="arrow-forward" />
+        </a>
+        <a href="#vacancies" class="btn btn-lg btn-tonal">Открытые позиции</a>
+        <a href="https://nuros.org" class="btn btn-lg btn-text" target="_blank" rel="noopener noreferrer">
+          О проекте
+          <Icon name="open-in-new" />
+        </a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <Shape class="shape shape-back" lobes={4} depth={0.12} />
+      <Shape class="shape shape-front" lobes={9} depth={0.06} />
+      <div class="hero-count">
+        <span class="count display-large emphasized">{vacancyCount}</span>
+        <span class="label-large">открытых позиций</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--spacing-lg) 0 var(--spacing-xl);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .eyebrow {
+    margin-bottom: var(--spacing-sm);
+    color: var(--md-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  h1 {
+    margin-bottom: var(--spacing-md);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-subtitle {
+    max-width: 36rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--md-on-surface-variant);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .hero-art {
+    position: relative;
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 26rem;
+    justify-self: center;
+  }
+
+  .hero-art :global(.shape) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-art :global(.shape-back) {
+    fill: var(--md-tertiary-container);
+    transform: scale(1.04) rotate(20deg);
+    animation: enter-back var(--spring-spatial-slow-duration) var(--spring-spatial-slow) both;
+  }
+
+  .hero-art :global(.shape-front) {
+    inset: 9%;
+    width: 82%;
+    height: 82%;
+    fill: var(--md-primary-container);
+    animation: enter-front var(--spring-spatial-slow-duration) var(--spring-spatial-slow) 100ms both;
+  }
+
+  .hero-count {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--md-on-primary-container);
+    text-align: center;
+  }
+
+  .count {
+    font-size: clamp(4rem, 10vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-count {
+    animation: fade-in var(--spring-effects-slow-duration) var(--spring-effects-slow) 250ms both;
+  }
+
+  .hero-text {
+    animation:
+      rise var(--spring-spatial-default-duration) var(--spring-spatial-default) both,
+      fade-in var(--spring-effects-slow-duration) var(--spring-effects-slow) both;
+  }
+
+  @keyframes enter-back {
+    from { transform: scale(0.6) rotate(-40deg); }
+    to { transform: scale(1.04) rotate(20deg); }
+  }
+
+  @keyframes enter-front {
+    from { transform: scale(0.5) rotate(60deg); }
+    to { transform: scale(1) rotate(0deg); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+  }
+
+  @keyframes rise {
+    from { transform: translateY(2rem); }
+  }
+
+  @media (max-width: 860px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-art { max-width: 18rem; }
+  }
+</style>

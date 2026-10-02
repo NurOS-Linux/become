@@ -1,0 +1,98 @@
+---
+const isHome = Astro.url.pathname === '/';
+const anchor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
+---
+
+<header id="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo title-large" aria-label="NurOS Become, главная">
+      <span class="emphasized">Nur<span class="logo-os">OS</span></span>
+      <span class="logo-become">Become</span>
+    </a>
+    <nav aria-label="Основная навигация">
+      <ul>
+        <li><a class="nav-item label-large" href={anchor('vacancies')}>Вакансии</a></li>
+        <li><a class="nav-item label-large" href={anchor('terms')}>Условия</a></li>
+      </ul>
+    </nav>
+    <a href="/apply" class="btn">Подать заявку</a>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 4);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 0;
+    background-color: var(--md-surface);
+    transition: background-color var(--spring-effects-default-duration) var(--spring-effects-default);
+  }
+
+  header.scrolled {
+    background-color: var(--md-surface-container);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    height: 3.5rem;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-right: auto;
+    color: var(--md-on-surface);
+  }
+
+  .logo-os { color: var(--md-primary); }
+  .logo-become { color: var(--md-on-surface-variant); font-weight: 400; }
+
+  nav ul {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .nav-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: var(--shape-full);
+    color: var(--md-on-surface-variant);
+    isolation: isolate;
+    overflow: hidden;
+    transition:
+      color var(--spring-effects-fast-duration) var(--spring-effects-fast),
+      border-radius var(--spring-spatial-fast-duration) var(--spring-spatial-fast);
+  }
+
+  .nav-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity var(--spring-effects-fast-duration) var(--spring-effects-fast);
+  }
+
+  .nav-item:hover { color: var(--md-on-surface); }
+  .nav-item:active { border-radius: var(--shape-sm); }
+  .nav-item:hover::before { opacity: var(--state-hover); }
+
+  @media (max-width: 640px) {
+    nav { display: none; }
+  }
+</style>

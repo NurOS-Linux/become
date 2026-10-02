@@ -1,0 +1,266 @@
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --md-primary: #a7c8ff;
+  --md-on-primary: #003258;
+  --md-primary-container: #1a5b9c;
+  --md-on-primary-container: #d6e3ff;
+
+  --md-secondary: #bcc7dc;
+  --md-on-secondary: #263141;
+  --md-secondary-container: #3c4858;
+  --md-on-secondary-container: #d8e3f8;
+
+  --md-tertiary: #d8bce3;
+  --md-on-tertiary: #3f2846;
+  --md-tertiary-container: #573f5f;
+  --md-on-tertiary-container: #f5d9ff;
+
+  --md-surface: #0f1215;
+  --md-surface-container-lowest: #0a0c0e;
+  --md-surface-container-low: #14181b;
+  --md-surface-container: #191d20;
+  --md-surface-container-high: #23272b;
+  --md-surface-container-highest: #2e3236;
+
+  --md-on-surface: #e2e2e6;
+  --md-on-surface-variant: #c2c7ce;
+
+  --md-outline: #8c9199;
+  --md-outline-variant: #42474d;
+
+  --shape-xs: 4px;
+  --shape-sm: 8px;
+  --shape-md: 12px;
+  --shape-lg: 16px;
+  --shape-lg-increased: 24px;
+  --shape-xl: 28px;
+  --shape-xl-increased: 32px;
+  --shape-xxl: 48px;
+  --shape-full: 999px;
+
+  --spring-spatial-fast: linear(0, 0.041, 0.145, 0.283, 0.435, 0.584, 0.72, 0.836, 0.929, 0.999, 1.047, 1.077, 1.092, 1.095, 1.089, 1.079, 1.065, 1.051, 1.037, 1.024, 1.014, 1.005, 0.999, 0.995, 0.992, 0.991, 0.991, 0.992, 0.993, 0.994, 0.995, 0.997, 1);
+  --spring-spatial-fast-duration: 347ms;
+  --spring-spatial-default: linear(0, 0.027, 0.096, 0.188, 0.291, 0.397, 0.499, 0.593, 0.677, 0.75, 0.811, 0.862, 0.903, 0.936, 0.961, 0.98, 0.994, 1.003, 1.009, 1.013, 1.015, 1.015, 1.015, 1.014, 1.012, 1.011, 1.009, 1.007, 1.006, 1.005, 1.004, 1.003, 1);
+  --spring-spatial-default-duration: 411ms;
+  --spring-spatial-slow: linear(0, 0.027, 0.096, 0.188, 0.292, 0.398, 0.5, 0.594, 0.677, 0.75, 0.812, 0.863, 0.904, 0.936, 0.961, 0.98, 0.994, 1.003, 1.009, 1.013, 1.015, 1.015, 1.015, 1.014, 1.012, 1.011, 1.009, 1.007, 1.006, 1.005, 1.004, 1.003, 1);
+  --spring-spatial-slow-duration: 567ms;
+  --spring-effects-fast: linear(0, 0.029, 0.099, 0.188, 0.285, 0.38, 0.47, 0.551, 0.623, 0.686, 0.74, 0.786, 0.824, 0.857, 0.883, 0.905, 0.923, 0.938, 0.95, 0.96, 0.968, 0.974, 0.98, 0.984, 0.987, 0.99, 0.992, 0.993, 0.995, 0.996, 0.997, 0.997, 1);
+  --spring-effects-fast-duration: 137ms;
+  --spring-effects-default: linear(0, 0.029, 0.099, 0.188, 0.284, 0.38, 0.469, 0.551, 0.623, 0.686, 0.74, 0.786, 0.824, 0.856, 0.883, 0.905, 0.923, 0.938, 0.95, 0.96, 0.968, 0.974, 0.979, 0.984, 0.987, 0.99, 0.992, 0.993, 0.995, 0.996, 0.997, 0.997, 1);
+  --spring-effects-default-duration: 211ms;
+  --spring-effects-slow: linear(0, 0.029, 0.099, 0.189, 0.285, 0.381, 0.47, 0.552, 0.624, 0.687, 0.741, 0.787, 0.825, 0.857, 0.884, 0.906, 0.924, 0.939, 0.951, 0.96, 0.968, 0.975, 0.98, 0.984, 0.987, 0.99, 0.992, 0.994, 0.995, 0.996, 0.997, 0.997, 1);
+  --spring-effects-slow-duration: 299ms;
+
+  --easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+
+  --state-hover: 0.08;
+  --state-focus: 0.10;
+  --state-pressed: 0.10;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  --font-family: 'Roboto Flex', 'Roboto', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--md-on-surface);
+  background-color: var(--md-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 576px) {
+  .container { padding: 0 var(--spacing-sm); }
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  font-family: inherit;
+}
+
+a {
+  color: var(--md-primary);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+.display-large   { font-size: 3.5625rem; line-height: 4rem;    font-weight: 400; letter-spacing: -0.016em; }
+.display-medium  { font-size: 2.8125rem; line-height: 3.25rem; font-weight: 400; }
+.display-small   { font-size: 2.25rem;   line-height: 2.75rem; font-weight: 400; }
+.headline-large  { font-size: 2rem;      line-height: 2.5rem;  font-weight: 500; }
+.headline-medium { font-size: 1.75rem;   line-height: 2.25rem; font-weight: 500; }
+.headline-small  { font-size: 1.5rem;    line-height: 2rem;    font-weight: 500; }
+.title-large     { font-size: 1.375rem;  line-height: 1.75rem; font-weight: 500; }
+.title-medium    { font-size: 1rem;      line-height: 1.5rem;  font-weight: 600; letter-spacing: 0.009em; }
+.title-small     { font-size: 0.875rem;  line-height: 1.25rem; font-weight: 600; letter-spacing: 0.006em; }
+.body-large      { font-size: 1rem;      line-height: 1.5rem;  font-weight: 400; letter-spacing: 0.031em; }
+.body-medium     { font-size: 0.875rem;  line-height: 1.25rem; font-weight: 400; letter-spacing: 0.016em; }
+.body-small      { font-size: 0.75rem;   line-height: 1rem;    font-weight: 400; letter-spacing: 0.025em; }
+.label-large     { font-size: 0.875rem;  line-height: 1.25rem; font-weight: 600; letter-spacing: 0.006em; }
+.label-medium    { font-size: 0.75rem;   line-height: 1rem;    font-weight: 600; letter-spacing: 0.031em; }
+
+.emphasized { font-weight: 700; }
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding: 0 1.5rem;
+  border: none;
+  border-radius: var(--shape-full);
+  background-color: var(--md-primary);
+  color: var(--md-on-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.006em;
+  white-space: nowrap;
+  cursor: pointer;
+  isolation: isolate;
+  overflow: hidden;
+  transition: border-radius var(--spring-spatial-fast-duration) var(--spring-spatial-fast);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity var(--spring-effects-fast-duration) var(--spring-effects-fast);
+}
+
+.btn:hover::before { opacity: var(--state-hover); }
+.btn:focus-visible::before { opacity: var(--state-focus); }
+.btn:active { border-radius: var(--shape-sm); }
+.btn:active::before { opacity: var(--state-pressed); }
+
+.btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+
+.btn-tonal {
+  background-color: var(--md-secondary-container);
+  color: var(--md-on-secondary-container);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--md-outline);
+  color: var(--md-on-surface-variant);
+}
+
+.btn-text {
+  padding: 0 0.75rem;
+  background-color: transparent;
+  color: var(--md-primary);
+}
+
+.btn-lg {
+  height: 3.5rem;
+  padding: 0 2rem;
+  font-size: 1rem;
+  gap: 0.625rem;
+}
+.btn-lg:active { border-radius: var(--shape-lg); }
+.btn-lg svg { width: 1.5rem; height: 1.5rem; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--md-outline-variant);
+  border-radius: var(--shape-sm);
+  color: var(--md-on-surface-variant);
+}
+
+.ripple {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: var(--state-pressed);
+  pointer-events: none;
+  transform: scale(0);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--md-primary);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.5rem 1rem;
+  border-radius: var(--shape-sm);
+  background: var(--md-primary-container);
+  color: var(--md-on-primary-container);
+  font-weight: 600;
+  transition: top var(--spring-spatial-fast-duration) var(--spring-spatial-fast);
+}
+.skip-link:focus { top: 1rem; }
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

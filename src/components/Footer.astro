@@ -1,0 +1,30 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container footer-inner">
+    <p class="body-small">{year} NurOS. Лицензия AGPL-3.0.</p>
+    <a class="body-small" href="https://nuros.org" target="_blank" rel="noopener noreferrer">nuros.org</a>
+  </div>
+</footer>
+
+<style>
+  footer {
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--md-outline-variant);
+    background-color: var(--md-surface-container-low);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--md-on-surface-variant);
+  }
+
+  @media (max-width: 576px) {
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import type { Vacancy, Category } from '../data/vacancies';
+
+interface Props {
+  vacancy: Vacancy;
+  number: number;
+  tone: Category['tone'];
+}
+
+const { vacancy, number, tone } = Astro.props;
+---
+
+<article class:list={['card', `tone-${tone}`]}>
+  <span class="number headline-large emphasized">{String(number).padStart(2, '0')}</span>
+  <h4 class="title-large">{vacancy.title}</h4>
+  <ul class="requirements">
+    {vacancy.requirements.map((requirement) => <li class="chip body-medium">{requirement}</li>)}
+  </ul>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-radius: var(--shape-xl);
+    background-color: var(--md-surface-container);
+  }
+
+  .number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--shape-lg);
+  }
+
+  .tone-primary .number { background: var(--md-primary-container); color: var(--md-on-primary-container); }
+  .tone-secondary .number { background: var(--md-secondary-container); color: var(--md-on-secondary-container); }
+  .tone-tertiary .number { background: var(--md-tertiary-container); color: var(--md-on-tertiary-container); }
+
+  h4 {
+    color: var(--md-on-surface);
+  }
+
+  .requirements {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+</style>

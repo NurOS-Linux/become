@@ -1,0 +1,50 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Shape from '../components/Shape.astro';
+---
+
+<MainLayout title="Страница не найдена" description="Страница не найдена.">
+  <section class="not-found">
+    <div class="container inner">
+      <div class="art">
+        <Shape class="shape" lobes={7} depth={0.08} />
+        <span class="code display-large emphasized">404</span>
+      </div>
+      <h1 class="headline-medium">Страница не найдена</h1>
+      <a href="/" class="btn btn-lg">На главную</a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .not-found {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    text-align: center;
+  }
+
+  .art {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 14rem;
+    height: 14rem;
+  }
+
+  .art :global(.shape) {
+    position: absolute;
+    inset: 0;
+    fill: var(--md-tertiary-container);
+  }
+
+  .code {
+    position: relative;
+    color: var(--md-on-tertiary-container);
+  }
+</style>

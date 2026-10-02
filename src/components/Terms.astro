@@ -1,0 +1,83 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section id="terms" class="terms">
+  <div class="container">
+    <h2 class="display-small emphasized">Условия</h2>
+    <div class="bento">
+      <div class="tile tile-wide">
+        <h3 class="headline-small">Без оплаты</h3>
+        <p class="body-large">NurOS некоммерческий проект. Участники работают на добровольной основе и не получают зарплату.</p>
+      </div>
+      <div class="tile">
+        <h3 class="headline-small">Открытый код</h3>
+        <p class="body-large">Код проекта публикуется под лицензией AGPL-3.0.</p>
+      </div>
+      <div class="tile">
+        <h3 class="headline-small">Заявка</h3>
+        <p class="body-large">Заявка подаётся через форму. Команда рассматривает её и связывается с кандидатом.</p>
+      </div>
+      <div class="tile tile-cta tile-wide">
+        <h3 class="headline-medium emphasized">Подать заявку</h3>
+        <a href="/apply" class="btn btn-lg">
+          Перейти к форме
+          <Icon name="arrow-forward" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .terms {
+    padding: var(--spacing-xl) 0;
+  }
+
+  h2 {
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.02em;
+  }
+
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    border-radius: var(--shape-xl-increased);
+    background-color: var(--md-surface-container);
+  }
+
+  .tile p {
+    color: var(--md-on-surface-variant);
+  }
+
+  .tile-wide {
+    grid-column: 1 / -1;
+  }
+
+  .tile-cta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+  }
+
+  .tile-cta .btn {
+    background-color: var(--md-on-primary-container);
+    color: var(--md-primary-container);
+  }
+
+  @media (max-width: 640px) {
+    .bento { grid-template-columns: 1fr; }
+  }
+</style>
